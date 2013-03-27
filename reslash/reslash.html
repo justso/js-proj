@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>test</title>
+    <link href="test.css" rel="stylesheet" type="text/css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/headjs/0.99/head.min.js"></script>
+    <script>
+/*jslint es5:true, white:false */
+/*globals $, console, head */
+
+var CDN = 'http://cdnjs.cloudflare.com/ajax/libs/';
+function clog() {
+    console.log.apply(console, arguments);
+    document.write(Array.prototype.join.call(arguments, ' ') + '<br>');
+}
+
+function Init() {
+    $(function () {
+        clog('init @ ' + Date());
+        function runTest(arr, regexp) {
+            $.each(arr, function (i, e) {
+                var tweak = capURL(e, regexp);
+                clog(e, e === tweak ? '' : '\t\t << <b> to tweak <\/b>');
+            });
+            function capURL(url, pat) {
+                url += (url.match(pat)) ? '/' : '';
+                return url;
+            }
+        }
+        var urls = [
+            'http://10.89.101.100',
+            'http://www.wellsfargomedia.com',
+            'http://www.wellsfargomedia.com/',
+            'http://www.wellsfargomedia.com/dir.html',
+            'http://10.89.101.100/dir',
+            'http://www.wellsfargomedia.com/dir',
+            'http://www.wellsfargomedia.com/dir/',
+            'http://www.wellsfargomedia.com/dir/file.html',
+            'http://10.89.101.100/dir/123456',
+            'http://www.wellsfargomedia.com/dir/123456',
+            'http://www.wellsfargomedia.com/dir/123456/',
+            'http://www.wellsfargomedia.com/dir/123456/file.html',
+            'http://10.89.101.100/fl.dr',
+            'http://www.wellsfargomedia.com/fl.dr',
+            'http://www.wellsfargomedia.com/fl.dr/',
+            'http://www.wellsfargomedia.com/fl.dr/file.html',
+            'http://10.89.101.100/fl.dr/123456',
+            'http://www.wellsfargomedia.com/fl.dr/123456',
+            'http://www.wellsfargomedia.com/fl.dr/123456/',
+            'http://www.wellsfargomedia.com/fl.dr/123456/file.html',
+            ];
+        runTest(urls, /\.com.*(\/[^\.\/]+)+$/);
+    });
+/*
+PRODUCT
+<script>
+    location.href.match(/\.com.*(\/[^\.\/]+)+$/) && (location.href += '/');
+<\script>
+*/
+}
+head.js(CDN + 'jquery/1.8.3/jquery.min.js', './test.js', Init);
+    </script>
+</head>
+
+<body>
+    <pre>test</pre>
+</body>
+</html>
