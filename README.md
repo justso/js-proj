@@ -1,5 +1,5 @@
 # MARKDOWN
-Body text -- `mono text`
+remove unnecessary elements and tidy up
 
 ## PRE
     $ do `it`
