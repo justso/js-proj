@@ -14,48 +14,56 @@ function Demo1 () {
     timeout(function(){ shout('d') }, 499);
     timeout(linger, 0);
     shout('b');
+    // a
+    // b
+    // undefined
+    // done ... linger takes a few secondsfinishes before c and d!
+    // d
+    // c
 }
-// a
-// b
-// undefined
-// done ... linger takes a few secondsfinishes before c and d!
-// d
-// c
 
+function Demo2 () {
+    var fromAddress, toAddress, GMaps = {};
 
-var geocode = function (address) {
-    var dfd = new $.Deferred();
-    GMaps.geocode({
-        address: address,
-        callback: function (response, status) {
-            return dfd.resolve(response);
-        }
+    GMaps.geocode = function () {
+        console.log(arguments);
+        return arguments;
+    }
+
+    function geocode(address) {
+        var dfd = new $.Deferred();
+        GMaps.geocode({
+            address: address,
+            callback: function (response, status) {
+                return dfd.resolve(response);
+            }
+        });
+        return dfd.promise();
+    };
+
+    function getRoute(fromLatLng, toLatLng) {
+        var dfd = new $.Deferred();
+        map.getRoutes({
+            origin: [fromLatLng.lat(), fromLatLng.lng()],
+            destination: [toLatLng.lat(), toLatLng.lng()],
+            travelMode: "driving",
+            unitSystem: "imperial",
+            callback: function (e) {
+                return dfd.resolve(e);
+            }
+        });
+        return dfd.promise();
+    };
+
+    function doSomethingCoolWithDirections(route) {
+        // do something with route
+        console.log(arguments);
+    };
+
+    $.when(geocode(fromAddress), geocode(toAddress)).
+    then(function (fromLatLng, toLatLng) {
+        getRoute(fromLatLng, toLatLng).then(doSomethingCoolWithDirections);
     });
-    return dfd.promise();
-};
 
-var getRoute = function (fromLatLng, toLatLng) {
-    var dfd = new $.Deferred();
-    map.getRoutes({
-        origin: [fromLatLng.lat(), fromLatLng.lng()],
-        destination: [toLatLng.lat(), toLatLng.lng()],
-        travelMode: "driving",
-        unitSystem: "imperial",
-        callback: function (e) {
-            return dfd.resolve(e);
-        }
-    });
-    return dfd.promise();
-};
-
-var doSomethingCoolWithDirections = function (route) {
-    // do something with route
-};
-
-$.when(geocode(fromAddress), geocode(toAddress)).
-then(function (fromLatLng, toLatLng) {
-    getRoute(fromLatLng, toLatLng).then(doSomethingCoolWithDirections);
-});
-
-
+}
 
