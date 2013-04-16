@@ -1,0 +1,39 @@
+/* v1.0.drt | 2010-03-27 */
+
+
+html, body, div, span, object, iframe,                        /* containers */
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,             /* block line types */
+a, abbr, acronym, address, big, cite, code,                       /* inline */
+del, dfn, em, img, ins, kbd, q, samp,                                         
+small, strike, strong, sub, sup, tt, var,                                     
+dl, dt, dd, ol, ul, li,                                            /* lists */
+fieldset, form, label, legend,                                     /* forms */
+table, caption, tbody, tfoot, thead, tr, th, td,                  /* tables */
+b, u, i, center, font, applet, s                              /* depracated */
+{
+  margin: 0; padding: 0;
+  border: 0; outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after {
+  content: ''; content: none; }
+
+
+:focus {                                /* remember to define focus styles! */
+  outline: 0; }
+
+
+ins {                             /* remember to highlight inserts somehow! */
+  text-decoration: none; }
+del {
+  text-decoration: line-through; }
+
+
+table {               /* tables still need 'cellspacing="0"' in the markup */
+  border-collapse: collapse;
+  border-spacing: 0; }
