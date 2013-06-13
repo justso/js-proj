@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>autozero</title>
+    <link href="autozero.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/headjs/0.99/head.min.js"></script>
+    <script>
+var CDN = 'http://cdnjs.cloudflare.com/ajax/libs/';
+    function Init() {
+    console.warn('init @ ' + Date())
+    };
+    head.js(CDN + 'jquery/1.8.3/jquery.min.js', './autozero.js', Init);
+    </script>
+</head>
+<body>
+    <pre>
+autozero
+</pre>
+    <div class="open" id="content">
+        <div class="inner">
+            <h3>Smooth CSS Transitions Between <code>height: 0</code> and <code>height: auto</code></h3>
+            <p>A clever workaround is to use <code>max-height</code> instead of <code>height</code>, and set it to something bigger than your content. Problem is the browser uses this value to calculate transition duration. So if you set it to <code>max-height: 1000px</code> but the content is only 100px high, the animation will be 10x too fast.</p>
+            <p>Another option is to measure the content height with JS and transition to that fixed value, but then you have to keep track of the content and manually resize it if it changes.</p>
+            <p>This solution is a hybrid of the two - transition to the measured content height, then set it to <code>max-height: 9999px</code> after the transition for fluid content sizing.</p>
+        </div>
+    </div>
+    <br>
+    <button id="toggle">Challenge Accepted!</button>
+</body>
+</html>
