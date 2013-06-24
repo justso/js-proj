@@ -14,7 +14,7 @@
 /* ////////////////////////////////////////////////// */
 
 /*
- 
+
      =====================
      .....................
      ... .................
@@ -22,18 +22,18 @@
      ... ...... ..........
      ......... ^ .........
      .......... ..........
-     ......... ^ .........          
+     ......... ^ .........
      ........ ^^^ ........
      ....... ^^^^^ .......
      ...... ^^^^^^^ ......
-     ..... ^^^^^^^^^ .....     
+     ..... ^^^^^^^^^ .....
      =====================
      SIMON CORRY BA(HONS.)
      SCIENCE 'N CREATIVITY
      =====================
-          
+
      http://simoncorry.com
-               
+
 */
 
 /* ////////////////////////////////////////////////// */
@@ -57,8 +57,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 
@@ -70,16 +70,16 @@ time, mark, audio, video {
     font-style: inherit;
     font-weight: inherit;
 	vertical-align: baseline;
-	
+
 }
 
 /* HTML5 display-role reset for older browsers */
 
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 
 	display: block;
-	
+
 }
 
 body {
@@ -89,12 +89,12 @@ body {
 }
 
 ol, ul {
-	
+
 	list-style: none;
 }
 
 blockquote, q {
-	
+
 	quotes: none;
 
 }

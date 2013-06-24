@@ -17,4 +17,4 @@ function shareFade() {
         $("#share-btns").animate({top:'0px'},400);
         isHidden = false;
     }
-};
+}

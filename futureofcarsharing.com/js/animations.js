@@ -1,4 +1,5 @@
-// /// BEGIN - CAR KEY BIND AND V ALIGN /// //
+var W = window;
+/// BEGIN - CAR KEY BIND AND V ALIGN ///
 
 // KEY BIND
 /*$(function carBind(){
@@ -11,8 +12,8 @@
         var n = parseInt(v, 10) - (d[a] ? x : 0) + (d[b] ? x : 0);
         return n < 0 ? 0 : n > w ? w : n;
     }
-    $(window).keydown(function(e) { d[e.which] = true; });
-    $(window).keyup(function(e) { d[e.which] = false; });
+    $(W).keydown(function(e) { d[e.which] = true; });
+    $(W).keyup(function(e) { d[e.which] = false; });
 
     setInterval(function() {
         box.css({
@@ -21,31 +22,31 @@
     }, 40);
     // VERTICALLY ALIGN CAR //
     var $car_mask = $('#car_mask');
-    $(window).bind('scroll', function() {
-        $car_mask.css('top', 597-$(window).scrollTop() + 'px');
-        $(window).stopTime('initiate_bridge_fade').oneTime(100, 'initiate_bridge_fade', function() {
-            animateBridge( $(window).scrollLeft() > 1400 );
+    $(W).bind('scroll', function() {
+        $car_mask.css('top', 597-$(W).scrollTop() + 'px');
+        $(W).stopTime('initiate_bridge_fade').oneTime(100, 'initiate_bridge_fade', function() {
+            animateBridge( $(W).scrollLeft() > 1400 );
         });
     });
 });*/
 
-// /// END - CAR KEY BIND AND V ALIGN /// //
+/// END - CAR KEY BIND AND V ALIGN ///
 
-// /// BEGIN - V ALIGN /// //
+/// BEGIN - V ALIGN ///
 
 $(function carBind(){
     var $car_mask = $('#car_mask');
-    $(window).bind('scroll', function() {
-        $car_mask.css('top', 597-$(window).scrollTop() + 'px');
-        $(window).stopTime('initiate_bridge_fade').oneTime(100, 'initiate_bridge_fade', function() {
-            animateBridge( $(window).scrollLeft() > 1400 );
+    $(W).bind('scroll', function() {
+        $car_mask.css('top', 597-$(W).scrollTop() + 'px');
+        $(W).stopTime('initiate_bridge_fade').oneTime(100, 'initiate_bridge_fade', function() {
+//            animateBridge( $(W).scrollLeft() > 1400 );
         });
     });
 });
 
-// /// END - V ALIGN /// //
+/// END - V ALIGN ///
 
-// /// BEGIN - ANIMATIONS /// //
+/// BEGIN - ANIMATIONS ///
 
 // WATER ANIMATION
 $(function waterAnimation() {
@@ -210,9 +211,9 @@ function hillEntranceAnimation() {
       animate({bottom:'+=220', opacity: 1.0},400);
 }
 
-// /// END - ANIMATIONS /// //
+/// END - ANIMATIONS ///
 
-// /// BEGIN - EXECUTE ANIMATIONS /// //
+/// BEGIN - EXECUTE ANIMATIONS ///
 
 // ENTRANCE ANIMATIONS
 $(function (){
@@ -221,16 +222,16 @@ $(function (){
     hillEntranceAnimation();
 });
 
-// /// END - EXECUTE ANIMATIONS /// //
+/// END - EXECUTE ANIMATIONS ///
 
-// /// BEGIN - EXECUTE SCROLL ANIMATIONS /// //
+/// BEGIN - EXECUTE SCROLL ANIMATIONS ///
 
 $(function scrollAnimations(){
 
     // SCROLL CAR BUBBLE
     $(function() {
-        $(window).bind('scroll', function() {
-            scrollAnimationCarBubble( $(window).scrollLeft() > 600 );
+        $(W).bind('scroll', function() {
+            scrollAnimationCarBubble( $(W).scrollLeft() > 600 );
         });
         function scrollAnimationCarBubble() {
             if( $("#car-bubble-wrapper").css('opacity') == 1)
@@ -240,8 +241,8 @@ $(function scrollAnimations(){
 
     // SCROLL ANIMATION ONE - 2200
     $(function() {
-        $(window).bind('scroll', function() {
-            scrollAnimationOne( $(window).scrollLeft() > 2200 );
+        $(W).bind('scroll', function() {
+            scrollAnimationOne( $(W).scrollLeft() > 2200 );
         });
         function scrollAnimationOne( right_of_bridge ) {
             if( $(".hill-animation-4").css('opacity') == 0 && right_of_bridge )
@@ -257,8 +258,8 @@ $(function scrollAnimations(){
 
     // SCROLL ANIMATION TWO - 1600
     $(function() {
-        $(window).bind('scroll', function() {
-            scrollAnimationTwo( $(window).scrollLeft() > 1600 );
+        $(W).bind('scroll', function() {
+            scrollAnimationTwo( $(W).scrollLeft() > 1600 );
         });
         function scrollAnimationTwo( right_of_bridge ) {
             if( $("#united-states-box").css('opacity') == 0 && right_of_bridge )
@@ -268,8 +269,8 @@ $(function scrollAnimations(){
 
     // SCROLL ANIMATION THREE - 7800
     $(function() {
-        $(window).bind('scroll', function() {
-            scrollAnimationThree( $(window).scrollLeft() > 7800 );
+        $(W).bind('scroll', function() {
+            scrollAnimationThree( $(W).scrollLeft() > 7800 );
         });
         function scrollAnimationThree( right_of_bridge ) {
             if( $("#germany-box").css('opacity') == 0 && right_of_bridge )
@@ -279,8 +280,8 @@ $(function scrollAnimations(){
 
     // SCROLL ANIMATION FOUR - 9400
     $(function() {
-        $(window).bind('scroll', function() {
-            scrollAnimationFour( $(window).scrollLeft() > 9400 );
+        $(W).bind('scroll', function() {
+            scrollAnimationFour( $(W).scrollLeft() > 9400 );
         });
         function scrollAnimationFour( right_of_bridge ) {
             if( $("#japan-box").css('opacity') == 0 && right_of_bridge )
@@ -290,8 +291,8 @@ $(function scrollAnimations(){
 
     // SCROLL ANIMATION FIVE - 1800
     $(function() {
-        $(window).bind('scroll', function() {
-            scrollAnimationFive( $(window).scrollLeft() > 1800 );
+        $(W).bind('scroll', function() {
+            scrollAnimationFive( $(W).scrollLeft() > 1800 );
         });
         function scrollAnimationFive( right_of_bridge ) {
             if( $("#tower-1").css('opacity') == 0 && right_of_bridge )
@@ -304,8 +305,8 @@ $(function scrollAnimations(){
 
     // TREE ANIMATION - 2800 to 3800
     $(function() {
-        $(window).bind('scroll', function() {
-            animateTreeOne( $(window).scrollLeft() > 2800 );
+        $(W).bind('scroll', function() {
+            animateTreeOne( $(W).scrollLeft() > 2800 );
         });
         function animateTreeOne( right_of_bridge ) {
             if( $("#tree-1").css('opacity') == 0 && right_of_bridge )
@@ -316,8 +317,8 @@ $(function scrollAnimations(){
         }
     });
     $(function() {
-        $(window).bind('scroll', function() {
-            animateTreeTwo( $(window).scrollLeft() > 3000 );
+        $(W).bind('scroll', function() {
+            animateTreeTwo( $(W).scrollLeft() > 3000 );
         });
         function animateTreeTwo( right_of_bridge ) {
             if( $("#tree-3").css('opacity') == 0 && right_of_bridge )
@@ -328,8 +329,8 @@ $(function scrollAnimations(){
         }
     });
     $(function() {
-        $(window).bind('scroll', function() {
-            animateTreeThree( $(window).scrollLeft() > 3200 );
+        $(W).bind('scroll', function() {
+            animateTreeThree( $(W).scrollLeft() > 3200 );
         });
         function animateTreeThree( right_of_bridge ) {
             if( $("#tree-5").css('opacity') == 0 && right_of_bridge )
@@ -340,8 +341,8 @@ $(function scrollAnimations(){
         }
     });
     $(function() {
-        $(window).bind('scroll', function() {
-            animateTreeFour( $(window).scrollLeft() > 3400 );
+        $(W).bind('scroll', function() {
+            animateTreeFour( $(W).scrollLeft() > 3400 );
         });
         function animateTreeFour( right_of_bridge ) {
             if( $("#tree-7").css('opacity') == 0 && right_of_bridge )
@@ -352,8 +353,8 @@ $(function scrollAnimations(){
         }
     });
     $(function() {
-        $(window).bind('scroll', function() {
-            animateTreeFive( $(window).scrollLeft() > 3600 );
+        $(W).bind('scroll', function() {
+            animateTreeFive( $(W).scrollLeft() > 3600 );
         });
         function animateTreeFive( right_of_bridge ) {
             if( $("#tree-9").css('opacity') == 0 && right_of_bridge )
@@ -364,8 +365,8 @@ $(function scrollAnimations(){
         }
     });
     $(function() {
-        $(window).bind('scroll', function() {
-            animateTreeSix( $(window).scrollLeft() > 3800 );
+        $(W).bind('scroll', function() {
+            animateTreeSix( $(W).scrollLeft() > 3800 );
         });
         function animateTreeSix( right_of_bridge ) {
             if( $("#tree-11").css('opacity') == 0 && right_of_bridge )
@@ -378,8 +379,8 @@ $(function scrollAnimations(){
 
     // SURF ANIMATION
     $(function() {
-        $(window).bind('scroll', function() {
-            animateSurfOne( $(window).scrollLeft() > 3400 );
+        $(W).bind('scroll', function() {
+            animateSurfOne( $(W).scrollLeft() > 3400 );
         });
         function animateSurfOne( right_of_bridge ) {
             if( $("#surf-1").css('opacity') == 0 && right_of_bridge )
@@ -387,8 +388,8 @@ $(function scrollAnimations(){
         }
     });
     $(function() {
-        $(window).bind('scroll', function() {
-            animateSurfTwo( $(window).scrollLeft() > 4200 );
+        $(W).bind('scroll', function() {
+            animateSurfTwo( $(W).scrollLeft() > 4200 );
         });
         function animateSurfTwo( right_of_bridge ) {
             if( $("#surf-2").css('opacity') == 0 && right_of_bridge )
@@ -397,8 +398,8 @@ $(function scrollAnimations(){
         }
     });
     $(function() {
-        $(window).bind('scroll', function() {
-            animateSurfThree( $(window).scrollLeft() > 4800 );
+        $(W).bind('scroll', function() {
+            animateSurfThree( $(W).scrollLeft() > 4800 );
         });
         function animateSurfThree( right_of_bridge ) {
             if( $("#surf-3").css('opacity') == 0 && right_of_bridge )
@@ -410,8 +411,8 @@ $(function scrollAnimations(){
 
     // BIRDS ANIMATION
     $(function() {
-        $(window).bind('scroll', function() {
-            animateBirds( $(window).scrollLeft() > 3600 );
+        $(W).bind('scroll', function() {
+            animateBirds( $(W).scrollLeft() > 3600 );
         });
         function animateBirds( right_of_bridge ) {
             if( $("#birds").css('opacity') == 0 && right_of_bridge )
@@ -421,8 +422,8 @@ $(function scrollAnimations(){
 
     // SUN ANIMATION
     $(function() {
-        $(window).bind('scroll', function() {
-            animateSun( $(window).scrollLeft() > 5200 );
+        $(W).bind('scroll', function() {
+            animateSun( $(W).scrollLeft() > 5200 );
         });
         function animateSun( right_of_bridge ) {
             if( $("#sun-text").css('opacity') == 0 && right_of_bridge )
@@ -432,8 +433,8 @@ $(function scrollAnimations(){
 
     // RAINBOW ANIMATION
     $(function() {
-        $(window).bind('scroll', function() {
-            animateHillSix( $(window).scrollLeft() > 5600 );
+        $(W).bind('scroll', function() {
+            animateHillSix( $(W).scrollLeft() > 5600 );
         });
         function animateHillSix( right_of_bridge ) {
             if( $("#hill-6").css('opacity') == 0 && right_of_bridge )
@@ -447,8 +448,8 @@ $(function scrollAnimations(){
 
     // BILLBOARD ANIMATION
     $(function() {
-        $(window).bind('scroll', function() {
-            animateBillboard( $(window).scrollLeft() > 5800 );
+        $(W).bind('scroll', function() {
+            animateBillboard( $(W).scrollLeft() > 5800 );
         });
         function animateBillboard( right_of_bridge ) {
             if( $("#billboard").css('opacity') == 0 && right_of_bridge )
@@ -458,8 +459,8 @@ $(function scrollAnimations(){
 
     // HILL 7 ANIMATION
     $(function() {
-        $(window).bind('scroll', function() {
-            animateHillSeven( $(window).scrollLeft() > 6400 );
+        $(W).bind('scroll', function() {
+            animateHillSeven( $(W).scrollLeft() > 6400 );
         });
         function animateHillSeven( right_of_bridge ) {
             if( $("#hill-7").css('opacity') == 0 && right_of_bridge )
@@ -472,8 +473,8 @@ $(function scrollAnimations(){
 
     // HILL 8, 9 AND 10 ANIMATION
     $(function() {
-        $(window).bind('scroll', function() {
-            animateHillEight( $(window).scrollLeft() > 6800 );
+        $(W).bind('scroll', function() {
+            animateHillEight( $(W).scrollLeft() > 6800 );
         });
         function animateHillEight( right_of_bridge ) {
             if( $("#hill-8").css('opacity') == 0 && right_of_bridge )
@@ -496,8 +497,8 @@ $(function scrollAnimations(){
 
     // MOUNTAIN 4 ANIMATION
     $(function() {
-        $(window).bind('scroll', function() {
-            animateMountainFour( $(window).scrollLeft() > 6600 );
+        $(W).bind('scroll', function() {
+            animateMountainFour( $(W).scrollLeft() > 6600 );
         });
         function animateMountainFour( right_of_bridge ) {
             if( $("#mountain-4").css('opacity') == 0 && right_of_bridge )
@@ -507,8 +508,8 @@ $(function scrollAnimations(){
 
     // MOUNTAIN 5 ANIMATION
     $(function() {
-        $(window).bind('scroll', function() {
-            animateMountainFive( $(window).scrollLeft() > 6800 );
+        $(W).bind('scroll', function() {
+            animateMountainFive( $(W).scrollLeft() > 6800 );
         });
         function animateMountainFive( right_of_bridge ) {
             if( $("#mountain-5").css('opacity') == 0 && right_of_bridge )
@@ -518,8 +519,8 @@ $(function scrollAnimations(){
 
     // MOUNTAIN 6 ANIMATION
     $(function() {
-        $(window).bind('scroll', function() {
-            animateMountainSix( $(window).scrollLeft() > 7000 );
+        $(W).bind('scroll', function() {
+            animateMountainSix( $(W).scrollLeft() > 7000 );
         });
         function animateMountainSix( right_of_bridge ) {
             if( $("#mountain-6").css('opacity') == 0 && right_of_bridge )
@@ -529,8 +530,8 @@ $(function scrollAnimations(){
 
     //  MOUNTAIN 7 ANIMATION
     $(function() {
-        $(window).bind('scroll', function() {
-            animateMountainSeven( $(window).scrollLeft() > 7200 );
+        $(W).bind('scroll', function() {
+            animateMountainSeven( $(W).scrollLeft() > 7200 );
         });
         function animateMountainSeven( right_of_bridge ) {
             if( $("#mountain-7").css('opacity') == 0 && right_of_bridge )
@@ -540,8 +541,8 @@ $(function scrollAnimations(){
 
     // MOUNTAIN 8 ANIMATION
     $(function() {
-        $(window).bind('scroll', function() {
-            animateMountainEight( $(window).scrollLeft() > 7400 );
+        $(W).bind('scroll', function() {
+            animateMountainEight( $(W).scrollLeft() > 7400 );
         });
         function animateMountainEight( right_of_bridge ) {
             if( $("#mountain-8").css('opacity') == 0 && right_of_bridge )
@@ -551,8 +552,8 @@ $(function scrollAnimations(){
 
     // MOUNTAIN 9 ANIMATION
     $(function() {
-        $(window).bind('scroll', function() {
-            animateMountainNine( $(window).scrollLeft() > 8000 );
+        $(W).bind('scroll', function() {
+            animateMountainNine( $(W).scrollLeft() > 8000 );
         });
         function animateMountainNine( right_of_bridge ) {
             if( $("#mountain-9").css('opacity') == 0 && right_of_bridge )
@@ -563,8 +564,8 @@ $(function scrollAnimations(){
 
     // HILL 11 ANIMATION
     $(function() {
-        $(window).bind('scroll', function() {
-            animateHillEleven( $(window).scrollLeft() > 7600 );
+        $(W).bind('scroll', function() {
+            animateHillEleven( $(W).scrollLeft() > 7600 );
         });
         function animateHillEleven( right_of_bridge ) {
             if( $("#hill-11").css('opacity') == 0 && right_of_bridge )
@@ -574,8 +575,8 @@ $(function scrollAnimations(){
 
     // HOUSE 1 AND 2 ANIMATION
     $(function() {
-        $(window).bind('scroll', function() {
-            animateHouseOne( $(window).scrollLeft() > 7800 );
+        $(W).bind('scroll', function() {
+            animateHouseOne( $(W).scrollLeft() > 7800 );
         });
         function animateHouseOne( right_of_bridge ) {
             if( $("#house-1").css('opacity') == 0 && right_of_bridge )
@@ -592,8 +593,8 @@ $(function scrollAnimations(){
 
     // TRUCK ANIMATION
     $(function() {
-        $(window).bind('scroll', function() {
-            animateTruck( $(window).scrollLeft() > 8400 );
+        $(W).bind('scroll', function() {
+            animateTruck( $(W).scrollLeft() > 8400 );
         });
         function animateTruck( right_of_bridge ) {
             if( $("#truck").css('opacity') == 0 && right_of_bridge )
@@ -618,8 +619,8 @@ $(function scrollAnimations(){
 
     // MOUNTAIN 10 ANIMATION
     $(function() {
-        $(window).bind('scroll', function() {
-            animateMountainTen( $(window).scrollLeft() > 8800 );
+        $(W).bind('scroll', function() {
+            animateMountainTen( $(W).scrollLeft() > 8800 );
         });
         function animateMountainTen( right_of_bridge ) {
             if( $("#mountain-10").css('opacity') == 0 && right_of_bridge )
@@ -636,8 +637,8 @@ $(function scrollAnimations(){
 
     // HILL 12, 13, 14 AND 15 ANIMATION
     $(function() {
-        $(window).bind('scroll', function() {
-            animateHillTwelve( $(window).scrollLeft() > 8600 );
+        $(W).bind('scroll', function() {
+            animateHillTwelve( $(W).scrollLeft() > 8600 );
         });
         function animateHillTwelve( right_of_bridge ) {
             if( $("#hill-12").css('opacity') == 0 && right_of_bridge )
@@ -650,8 +651,8 @@ $(function scrollAnimations(){
 
     // HILL 16, 17 AND 18 ANIMATION
     $(function() {
-        $(window).bind('scroll', function() {
-            animateHillSixteen( $(window).scrollLeft() > 9400 );
+        $(W).bind('scroll', function() {
+            animateHillSixteen( $(W).scrollLeft() > 9400 );
         });
         function animateHillSixteen( right_of_bridge ) {
             if( $("#hill-16").css('opacity') == 0 && right_of_bridge )
@@ -663,8 +664,8 @@ $(function scrollAnimations(){
 
     // SHRUB ANIMATION
     $(function() {
-        $(window).bind('scroll', function() {
-            animateShrubs( $(window).scrollLeft() > 9400 );
+        $(W).bind('scroll', function() {
+            animateShrubs( $(W).scrollLeft() > 9400 );
         });
         function animateShrubs( right_of_bridge ) {
             if( $("#shrub-1").css('opacity') == 0 && right_of_bridge )
@@ -679,8 +680,8 @@ $(function scrollAnimations(){
 
     // HILL 19, 20 AND 21 ANIMATION
     $(function() {
-        $(window).bind('scroll', function() {
-            animateHillNinteen( $(window).scrollLeft() > 9800 );
+        $(W).bind('scroll', function() {
+            animateHillNinteen( $(W).scrollLeft() > 9800 );
         });
         function animateHillNinteen( right_of_bridge ) {
             if( $("#hill-19").css('opacity') == 0 && right_of_bridge )
@@ -692,8 +693,8 @@ $(function scrollAnimations(){
 
     // SHRUB ANIMATION
     $(function() {
-        $(window).bind('scroll', function() {
-            animateRoo( $(window).scrollLeft() > 9900 );
+        $(W).bind('scroll', function() {
+            animateRoo( $(W).scrollLeft() > 9900 );
         });
         function animateRoo( right_of_bridge ) {
             if( $("#roo-seat").css('opacity') == 0 && right_of_bridge )
@@ -708,8 +709,8 @@ $(function scrollAnimations(){
 
     // UFO ANIMATION
     $(function() {
-        $(window).bind('scroll', function() {
-          animateUfo( $(window).scrollLeft() > 10200 );
+        $(W).bind('scroll', function() {
+          animateUfo( $(W).scrollLeft() > 10200 );
         });
         function animateUfo( right_of_bridge ) {
           if( $("#hill-23").css('opacity') == 0 && right_of_bridge )
@@ -723,8 +724,8 @@ $(function scrollAnimations(){
 
     // HILL 22, 23 AND 24 ANIMATION
     $(function() {
-        $(window).bind('scroll', function() {
-            animateHillTwentytwo( $(window).scrollLeft() > 10400 );
+        $(W).bind('scroll', function() {
+            animateHillTwentytwo( $(W).scrollLeft() > 10400 );
         });
         function animateHillTwentytwo( right_of_bridge ) {
             if( $("#flag-collab-fund").css('opacity') == 0 && right_of_bridge )
@@ -738,11 +739,11 @@ $(function scrollAnimations(){
 
 });
 
-// /// BEGIN - EXECUTE SCROLL ANIMATIONS /// //
+/// BEGIN - EXECUTE SCROLL ANIMATIONS ///
 
 // OLD LOOPING ANIMATIONS
 /*$(function loopingAnimations(){
-    $(window).everyTime(10, function (){
+    $(W).everyTime(10, function (){
         $("#car").animate({top:'+=2'},200).animate({top:'+=-2'},200);
         $("#plane").animate({bottom:'+=50'},1200).animate({bottom:'+=-50'},1200);
         $(".bridge-water-bg").animate({opacity:0.9, left:'+=-10'},600).animate({opacity:0.7, left:'+=10'},600);
