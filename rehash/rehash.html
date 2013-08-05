@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>rehash</title>
+    <link href="rehash.css" rel="stylesheet">
+    <script src="/lib/headjs/0.99/head.js"></script>
+    <script>
+
+    var CDN = '/lib/', debug = 1;
+
+    function Init() {
+        console.warn('init @ ' + Date())
+    };
+    head.js(CDN + 'jquery/1.8.2/jquery.js', CDN + 'js/global.js', './rehash.js', Init);
+
+    </script>
+</head>
+<body>
+<pre>
+rehash
+</pre>
+<div id="content">
+    <a href="test/1">test/1</a><br>
+    <a href="test/2">test/2</a><br>
+    <a href="test/3">test/3</a><br>
+    <a href="test/4">test/4</a><br>
+</div>
+</body>
+</html>
