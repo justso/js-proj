@@ -1,0 +1,33 @@
+.transitions {
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+}
+
+body {
+    font-family: Arial;
+    line-height: 3ex;
+}
+code {
+    display: inline-block;
+    background: #fafafa;
+    padding: 0 1ex;
+}
+#toggle {
+    display: block;
+    padding: 10px;
+    margin: 10px auto;
+    text-align: center;
+    width: 30ex;
+}
+#content {
+    overflow: hidden;
+    margin: 10px;
+    border: 1px solid #666;
+    background: #efefef;
+    opacity: 1;
+}
+#content .inner {
+    padding: 10px;
+    overflow: auto;
+}

@@ -1,0 +1,35 @@
+body {
+    font-size: 14px;
+    line-height: 200%;
+    margin: 0;
+}
+header {
+    background-color: orange;
+    padding: 2em 0;
+}
+nav {
+    background-color: red;
+    box-shadow: 0 0.2em 0.5em gray;
+    padding: 1em 0;
+    /* position: -webkit-sticky; */
+    top: 0;
+}
+header, nav {
+    color: #fff;
+    text-align: center;
+}
+.content {
+    margin: 0 auto;
+    padding: 1em 0 10em;
+    position: relative;
+    width: 50%;
+}
+.sticky {
+    border-bottom: 1px solid gray;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+}
+/* 2do: prevent IE8 nav trepanation */

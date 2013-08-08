@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>pubsub</title>
+    <link href="style.css" rel="stylesheet">
+    <meta http-equiv="cache-control" content="no-cache">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/headjs/0.99/head.min.js"></script>
+    <script>
+    var CDN = 'http://cdnjs.cloudflare.com/ajax/libs/';
+    function Init() { console.warn('init @ ' + Date()); }
+    head.js(CDN + 'jquery/1.8.3/jquery.min.js', './script.js', Init);
+    </script>
+</head>
+<body>
+    <pre>
+Option 4: Third-party Plugins A number of jQuery plugins have been written
+which provide a pub/sub implementation free of reliance on .bind()/.trigger()
+(and consequently .on()/.off). Should you wish to use one of these solutions,
+I'm happy to recommend Peter Higgin's plugin available here:
+https://github.com/phiggins42/bloody-jquery-plugins/blob/master/pubsub.js.
+
+Demo: http://jsfiddle.net/zkwra/
+
+There are of course many, many library agnostic Pub/Sub implementations that
+have been written (Shameless plug: I've also done one
+https://github.com/addyosmani/pubsubz/), but this rough guide will be focusing
+on jQuery for the most part. Here's Peter's implementation and a demo:
+
+
+</pre>
+</body>
+</html>
