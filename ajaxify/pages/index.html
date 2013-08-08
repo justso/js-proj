@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>ajaxify</title>
+        <script src="/lib/headjs/0.99/head.js"></script>
+        <script>
+
+            var CDN = '/lib/', debug = 1;
+
+            function Init() {
+                console.warn('init @ ' + Date());
+                head.js(
+                '/lib/jquery/1.8.2/jquery.js',
+                '//balupton.github.io/jquery-scrollto/lib/jquery-scrollto.js',
+                '//browserstate.github.io/history.js/scripts/bundled/html4+html5/jquery.history.js',
+                '../ajaxify-html5.js'
+                , Init);
+            };
+            head.js(CDN + 'jquery/1.8.2/jquery.js', './init.js', Init);
+
+        </script>
+    </head>
+    <body>
+        <pre>ajaxify</pre>
+        <div id="content">
+            <pre>(dyna-load)</pre>
+            <a href="a.html">a.html</a><br>
+            <a href="b.html">b.html</a><br>
+            <a href="c.html">c.html</a><br>
+        </div>
+    </body>
+</html>

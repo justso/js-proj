@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>hbars</title>
+    <link href="hbars.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/headjs/0.99/head.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
+    <script>
+    var CDN = '/lib/';
+    function Init() {
+        console.warn('init @ ' + Date())
+    };
+    head.js('./hbars.js', Init);
+    </script>
+</head>
+<body>
+    <div id="a1">
+        <h3>The List of Shoes 1:</h3>
+        <ul class="shoesNav"></ul>
+    </div>
+    <br>
+    <div id="a2">
+        <h3>The List of Shoes 2:</h3>
+        <ul class="shoesNav"></ul>
+        <script id="shoe-template" type="x-handlebars-template">
+{{#each this}}<li class="shoes"><a href="/{{name}}">{{name}} -- Price: {{price}} </a></li>{{/each}}
+        </script> 
+    </div>
+</body>
+</html>
