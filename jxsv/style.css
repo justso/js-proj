@@ -1,0 +1,16 @@
+html {
+    font-size: 11px;
+}
+textarea {
+    font-size: 10px;
+}
+.error {
+    color: #e00;
+}
+.load {
+    display: none;
+}
+section {
+    font-family: monospace;
+    white-space: pre;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>xsv2json</title>
+        <link href="style.css" rel="stylesheet">
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/headjs/0.99/head.min.js"></script>
+        <script>
+            var CDN = 'http://cdnjs.cloudflare.com/ajax/libs/';
+            head.js(CDN + 'jquery/1.8.3/jquery.js', '/lib/js/jq-con.js', './jq-xsv.js', './script.js', Init);
+            function Init() {
+                console.warn('init @ ' + Date());
+                main();
+            };
+        </script>
+    </head>
+    <body>
+        <form id="convertForm" name="convertForm" onsubmit="return false;">
+            <p>
+                <label for="vals">Data:</label>
+                <textarea cols="160" id="vals" name="vals" rows="15"></textarea>
+            </p>
+            <p>
+                <label for="json">JSON:</label>
+                <textarea cols="160" id="json" name="json" readonly="readonly" rows="15"></textarea>
+            </p>
+            <input onclick="Xsv(',');" type="button" value="Comma Sep'd">
+            <input onclick="Xsv('\t');" type="button" value="Tab Sep'd">
+            <input type="reset">
+        </form>
+
+<!--  -->
+
+        <section>
+<button>sample CSV</button><textarea class="load">
+key,text,src
+727872,"Space is limited,
+
+ [RSVP here]",http://www.wellsfargomedia.com/index.html
+727874,[Booth reception invite],http://www.wellsfargomedia.com/index.html
+today,WF Today piece,https://www.wellsfargo.com/wellsfargotoday.pdf
+</textarea><button>sample TSV</button><textarea class="load">
+key	text	src
+727872	Space is limited,
+
+ [RSVP here]	http://www.wellsfargomedia.com/index.html
+727874	[Booth reception invite]	http://www.wellsfargomedia.com/index.html
+today	WF Today piece	https://www.wellsfargo.com/wellsfargotoday.pdf
+</textarea>
+        </section>
+
+<!--  -->
+
+        <ul>
+            <li>The data text MUST have a header row.</li>
+            <li>This utility does not currently check for escaped quotes inside of like quotes
+                (e.g.: <code>"foo, \"bar\" baz"</code>).</li>
+        </ul>
+    </body>
+</html>
