@@ -1,0 +1,32 @@
+#tria1 {
+  border: 10em solid transparent;
+  border-bottom: 20em solid red;
+  border-top: 0;
+  left: 40em;
+  top: 10em; }
+
+#tria2 {
+  border: 10em solid transparent;
+  border-bottom: 15em solid green;
+  border-top: 0;
+  left: 30em;
+  top: 10em; }
+
+#tria3 {
+  border: 10em solid transparent;
+  border-bottom: 10em solid blue;
+  border-top: 0;
+  left: 20em;
+  top: 10em; }
+
+#tria4 {
+  border: 10em solid transparent;
+  border-bottom: 5em solid yellow;
+  border-top: 0;
+  left: 10em;
+  top: 10em; }
+
+.tria {
+  position: absolute;
+  width: 0;
+  z-index: 1; }

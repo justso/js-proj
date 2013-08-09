@@ -1,0 +1,54 @@
+$debug: 1;
+
+//  triangle(side, ems, color, ratio)
+@mixin triangle($side: bottom, $size: 5em, $ratio: 1.2, $color: red){
+    border: $size solid transparent;
+    border-#{ $side }: $size * $ratio solid $color;
+
+    @if $side == top {
+        border-bottom: 0;
+    } @else if $side == right {
+        border-left: 0;
+    } @else if $side == bottom {
+        border-top: 0;
+    } @else if $side == left {
+        border-right: 0;
+    }
+}
+
+//  triangle(side, size, color, ratio)
+@mixin triaTest(){
+    $mag: .5;
+    $size: 10em;
+    $side: bottom;
+
+    #tria1 {
+        $num: 4; $fact: $num * $mag;
+        @include triangle($side, $size, $fact, red);
+        left: $size * $num; top: $size;
+    }
+    #tria2 {
+        $num: 3; $fact: $num * $mag;
+        @include triangle($side, $size, $fact, green);
+        left: $size * $num; top: $size;
+    }
+    #tria3 {
+        $num: 2; $fact: $num * $mag;
+        @include triangle($side, $size, $fact, blue);
+        left: $size * $num; top: $size;
+    }
+    #tria4 {
+        $num: 1; $fact: $num * $mag;
+        @include triangle($side, $size, $fact, yellow);
+        left: $size * $num; top: $size;
+    }
+    .tria {
+        position: absolute;
+        width: 0;
+        z-index: 1;
+    }
+}
+
+@if $debug > 1 {
+    @include triaTest();
+}
