@@ -37,6 +37,6 @@ function init() {
 // auto sub to new color publishing
 // when click publish clicked color
 
-
 // https://gist.github.com/addyosmani/1321768
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

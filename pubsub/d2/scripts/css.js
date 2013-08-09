@@ -3,7 +3,7 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 var Css = {
-    bkgr: function(str) {
+    bkgr: function (str) {
         return {
             backgroundColor: str || Gen.rgb()
         };

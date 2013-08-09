@@ -1,21 +1,23 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+    <meta content="no-cache" http-equiv="cache-control">
     <title>pubsub</title>
     <link href="style.css" rel="stylesheet">
-    <meta http-equiv="cache-control" content="no-cache">
+    <script src="/lib/jquery/1.8.2/jquery.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
-    <ul>
-        demo
-        <li><a href="d1/index.html">d1</a></li>
-        <li><a href="d2/index.html">d2</a></li>
-        examples
-        <li><a href="ex1/index.html">ex1</a></li>
-        <li><a href="ex2/index.html">ex2</a></li>
-        <li><a href="ex4/index.html">ex4</a></li>
+    <iframe frameborder="0" name="port"></iframe>
+    <ul>demo
+        <li><a target="port" href="d1/index.html">d1</a></li>
+        <li><a target="port" href="d2/index.html">d2</a></li>
     </ul>
-    <iframe name="port" frameborder="0"></iframe>
-    <output></output>
+    <ul>examples
+        <li><a target="port" href="ex1/index.html">ex1</a></li>
+        <li><a target="port" href="ex2/index.html">ex2</a></li>
+        <li><a target="port" href="ex4/index.html">ex4</a></li>
+    </ul>
+    <div id="Output">abc</div>
 </body>
 </html>

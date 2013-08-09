@@ -2,7 +2,10 @@
 /*globals $, window */
 
 var content = $('#content');
-content.inner = $('#content .inner'); // inner div needed to get size of content when closed
+
+// inner div needed to get size of content when closed
+content.inner = $('#content .inner');
+
 // css transition callback
 content.on('transitionEnd webkitTransitionEnd transitionend oTransitionEnd msTransitionEnd', function (e) {
     if (content.hasClass('open')) {
@@ -26,11 +29,14 @@ $('#toggle').on('click', function (e) {
                 'opacity': 0
             });
 
-        }, 10); // 10ms timeout is the secret ingredient for disabling/enabling transitions
-        // chrome only needs 1ms but FF needs ~10ms or it chokes on the first animation for some reason
+        }, 10);
+        // 10ms timeout is the secret ingredient for disabling/enabling transitions
+        // chrome only needs 1ms
+        // but FF needs ~10ms or it chokes on the first animation for some reason
     } else if (content.hasClass('open')) {
 
-        content.contentHeight += content.inner.outerHeight(); // if closed, add inner height to content height
+        // if closed, add inner height to content height
+        content.contentHeight += content.inner.outerHeight();
         content.css({
             'max-height': content.contentHeight,
             'opacity': 1
