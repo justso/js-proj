@@ -1,54 +1,86 @@
 /*jslint es5:true, forin:true, white:false */
-/*globals $, jQuery, console */
-
+/*globals $, C, DFR:true, Fn, RTN, OBJ, jQuery, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-// ASYNC DEMOS
+var T = {};
 
-function clog() {
-    console.log.apply(console, arguments);
-}
+T[1] = function () {
+    C.group('T.1');
 
-function queue(f, n) {
-    setTimeout(f, n || 1);
-}
+    function asyncEvent() {
+        DFR = new $.Deferred();
 
-function linger(n) {
-    var soon = $.now() + 3000;
-    while ($.now() < soon) {
-        $.noop();
+        // Resolve after a random interval
+        RTN.t1 = Fn.request(function () {
+            DFR.resolve('Timer 1 won');
+            C.groupEnd();
+            T[2]();
+        });
+        // Reject after a random interval
+        RTN.t2 = Fn.request(function () {
+            DFR.reject('Timer 1 lost');
+            C.groupEnd();
+            T[2]();
+        });
+
+        // Show a 'working...' message regularly
+        Fn.status(DFR, 0.1);
+        // Return the Promise so caller can't change the Deferred
+        return DFR.promise();
     }
-    clog('done');
-}
+    // Attach [done, fail, progress] handlers for the asyncEvent
+    $.when(asyncEvent()).then(Fn.log, Fn.log, Fn.log);
+    return [DFR, RTN];
+};
 
+T[2] = function () {
+    C.group('T.2');
+    DFR = $.Deferred();
+    OBJ = { // becomes a promise piggybacked upon an async scenerio
+        hello: Fn.hello,
+    };
 
-function Demo1() {
-    clog('a');
+    DFR.promise(OBJ); //    extend OBJ  promise api
+    DFR.resolve('Jon'); //  mutate DFR  locked data
+    OBJ.done(function (x) {
+        OBJ.hello(x); //    Hello Jon
+    }).hello('Karl'); //   invoke promise
+    C.groupEnd();
+    T[3]();
+    return [DFR, OBJ, RTN];
+};
 
-    queue(function () {
-        clog('c');
+T[3] = function () {
+    C.group('T.3');
+    C.debug('a');
+
+    Fn.queue(function () {
+        C.debug('c');
+        C.groupEnd();
+        T[4]();
     }, 500);
 
-    queue(function () {
-        clog('d');
+    Fn.queue(function () {
+        C.debug('d');
     }, 499);
 
-    queue(linger, 0);
-    clog('b');
+    Fn.queue(Fn.linger, 0);
+    C.debug('b');
     // a
     // b
     // undefined
     // done ... linger takes a few seconds / finishes before c and d!
     // d
     // c
-}
+};
 
-function Demo2() {
+T[4] = function () {
+    C.group('T.4');
     var fromAddress = 'A',
         toAddress = 'B',
         GMaps = {
         geocode: function (obj) {
-            queue(function () {
-                clog('GMaps.geocode', obj);
+            Fn.queue(function () {
+                C.debug('GMaps.geocode', obj);
                 obj.callback({
                     lat: function () {
                         return obj.address + 'x';
@@ -61,15 +93,16 @@ function Demo2() {
         },
 
         getRoutes: function (obj) {
-            queue(function () {
-                clog('GMaps.getRoutes', obj);
+            Fn.queue(function () {
+                C.debug('GMaps.getRoutes', obj);
                 obj.callback(arguments);
             }, 999);
         },
         drawDirections: function (route) {
             // do something with route
-            queue(function () {
-                clog('GMaps.drawDirections', arguments);
+            Fn.queue(function () {
+                C.debug('GMaps.drawDirections', arguments);
+                C.groupEnd();
             }, 999);
         },
     };
@@ -103,7 +136,7 @@ function Demo2() {
     then(function (fromLatLng, toLatLng) {
         getRoute(fromLatLng, toLatLng).then(GMaps.drawDirections);
     });
-
-}
+};
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+T[1]();
